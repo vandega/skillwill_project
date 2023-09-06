@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add brand</title>
+</head>
+<body>
+    <button><a href="{% url 'dealers_list' %}">dealers list</a></button>
+    <h1>Add dealer</h1>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add dealer</button>
+        </form>
+    </div>
+</body>
+</html>

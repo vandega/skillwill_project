@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ car.car_model }}</title>
+</head>
+<body>
+    <div>
+        {#      menubar      #}
+         <div>
+             <button><a href="{% url 'car_list' %}"> cars </a> </button>
+         </div>
+    </div>
+    <div>
+        <h1>{{ car.brand|capfirst }} {{ car.car_model|capfirst }}</h1>
+        <p> max speed: {{ car.speed }}</p>
+        {% if car.picture %}
+            <img src="{{ car.picture.url }}" alt="{{ car.picture.name }}" style="max-height: 300px">
+        {% else %}
+            <pre>photo not found</pre>
+        {% endif %}
+
+        <h2>Dealers of {{ car.brand }}</h2>
+        {% for dealer in dealers %}
+        	<li><a href="{% url 'dealer_details' dealer.pk %}">{{ dealer.name }} {{ dealer.surname }}</a></li>
+        {% empty %}
+            <p>has no dealer</p>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

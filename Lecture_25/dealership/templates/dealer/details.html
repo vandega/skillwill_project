@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ dealer.name }} {{ dealer.surname }}</title>
+</head>
+<body>
+    <div>
+        <h2>dealer of {{ dealer.dealer_of }}</h2>
+
+        <p>name: {{ dealer.name|capfirst }}</p>
+        <p>surname: {{ dealer.surname|capfirst }}</p>
+        <p>data of birth: {{ dealer.birth_day }}</p>
+    </div>
+    <div>
+        {% for product in products %}
+        	<li><a href="{% url 'car_details' product.pk %}">{{ product.car_model }}</a></li>
+        {% empty %}
+        	<h3>no cars for deal</h3>
+        {% endfor %}
+
+    </div>
+</body>
+</html>

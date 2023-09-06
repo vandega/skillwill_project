@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brands</title>
+</head>
+<body>
+    <div>
+        <h1>Brands</h1>
+        {% for brand in brands %}
+        	<li><a href="#">{{ brand.brand_name }}</a></li>
+        {% empty %}
+        	<h3>No brands</h3>
+        {% endfor %}
+
+    </div>
+</body>
+</html>

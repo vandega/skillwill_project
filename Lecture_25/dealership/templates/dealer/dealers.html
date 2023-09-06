@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dealders</title>
+</head>
+<body>
+    <div>
+        <button><a href="{% url 'create_dealer' %}">add dealer</a></button>
+    </div>
+    <div>
+        <h1>Dealers</h1>
+        {% for dealer in dealers %}
+        	<li><a href="{% url 'dealer_details' dealer.pk %}"> {{ dealer.name }} {{ dealer.surname }} - {{ dealer.dealer_of }}</a></li>
+        {% empty %}
+        	<h3>No dealer</h3>
+        {% endfor %}
+
+    </div>
+</body>
+</html>
